@@ -1,3 +1,5 @@
+import { UyeCevaplarComponent } from './components/uye-cevaplar/uye-cevaplar.component';
+import { UyeSorularComponent } from './components/uye-sorular/uye-sorular.component';
 import { UyeDialogComponent } from './components/dialogs/uye-dialog/uye-dialog.component';
 import { KayitComponent } from './components/kayit/kayit.component';
 import { UyeComponent } from './components/uye/uye.component';
@@ -42,6 +44,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SoruListeleComponent,
     UyeComponent,
     KayitComponent,
+    UyeSorularComponent,
+    UyeCevaplarComponent,
 
     //Dialoglar
     AlertDialogComponent,

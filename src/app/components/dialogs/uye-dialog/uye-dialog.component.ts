@@ -17,6 +17,8 @@ export class UyeDialogComponent implements OnInit {
   frm: FormGroup;
   yeniUye: Uyeler;
   uye: Uyeler[];
+  yetkiler: ["admin", "uye"];
+
   dataSource: any;
   @ViewChild(MatSort) sort: MatSort
   @ViewChild(MatPaginator) paginator: MatPaginator
@@ -46,8 +48,8 @@ export class UyeDialogComponent implements OnInit {
   FormOlustur() {
     return this.frmBuild.group({
       kuladi: [this.yeniUye.kuladi],
-      yetki: [this.yeniUye.yetki],
-      sifre: [this.yeniUye.sifre]
+      sifre: [this.yeniUye.sifre],
+      yetki: [this.yeniUye.yetki]
 
     });
   }

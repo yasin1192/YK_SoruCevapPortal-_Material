@@ -1,3 +1,5 @@
+import { UyeCevaplarComponent } from './components/uye-cevaplar/uye-cevaplar.component';
+import { UyeSorularComponent } from './components/uye-sorular/uye-sorular.component';
 import { KayitComponent } from './components/kayit/kayit.component';
 import { UyeComponent } from './components/uye/uye.component';
 import { AuthGuard } from './services/AuthGuard';
@@ -62,6 +64,24 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       yetkiler: ['Admin'],
+      gerigit: '/login'
+    }
+  },
+  {
+    path: 'uyeninsorularilistele',
+    component: UyeSorularComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ['Admin', 'Uye'],
+      gerigit: '/login'
+    }
+  },
+  {
+    path: 'uyenincevaplarilistele',
+    component: UyeCevaplarComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ['Admin', 'Uye'],
       gerigit: '/login'
     }
   },

@@ -81,6 +81,8 @@ export class UyeComponent implements OnInit {
       if (d) {
         //  d.soruhazirlayan_id = localStorage.getItem("uid");
         kayit.kuladi = d.kuladi;
+        kayit.sifre = d.sifre;
+        kayit.yetki = d.yetki;
         console.log(d);
         console.log(kayit);
         this.apiServis.UyeDuzenle(kayit).subscribe((s: Sonuc) => {
