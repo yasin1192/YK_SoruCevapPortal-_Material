@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { UyeCevaplarComponent } from './uye-cevaplar.component';
+import { KayitDialogComponent } from './kayit-dialog.component';
 
-describe('UyeCevaplarComponent', () => {
-  let component: UyeCevaplarComponent;
-  let fixture: ComponentFixture<UyeCevaplarComponent>;
+describe('KayitDialogComponent', () => {
+  let component: KayitDialogComponent;
+  let fixture: ComponentFixture<KayitDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UyeCevaplarComponent ]
+      declarations: [ KayitDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UyeCevaplarComponent);
+    fixture = TestBed.createComponent(KayitDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

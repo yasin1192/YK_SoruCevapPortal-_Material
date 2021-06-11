@@ -1,3 +1,4 @@
+import { KayitDialogComponent } from './components/dialogs/kayit-dialog/kayit-dialog.component';
 import { UyeCevaplarComponent } from './components/uye-cevaplar/uye-cevaplar.component';
 import { UyeSorularComponent } from './components/uye-sorular/uye-sorular.component';
 import { UyeDialogComponent } from './components/dialogs/uye-dialog/uye-dialog.component';
@@ -54,7 +55,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CevapDialogComponent,
     KategoriDialogComponent,
     UyeDialogComponent,
-
+    KayitDialogComponent,
 
   ],
   imports: [
@@ -72,7 +73,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SoruDialogComponent,
     CevapDialogComponent,
     KategoriDialogComponent,
-    UyeDialogComponent
+    UyeDialogComponent,
+    KayitDialogComponent,
   ],
   providers: [MyAlertService, ApiService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

@@ -68,7 +68,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'uyeninsorularilistele',
+    path: 'uyeninsorularilistele/:uyeid',
     component: UyeSorularComponent,
     canActivate: [AuthGuard],
     data: {
@@ -77,7 +77,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'uyenincevaplarilistele',
+    path: 'uyenincevaplarilistele/:uyeid',
     component: UyeCevaplarComponent,
     canActivate: [AuthGuard],
     data: {

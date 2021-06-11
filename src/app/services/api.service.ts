@@ -18,6 +18,9 @@ export class ApiService {
   UyeListe() {
     return this.http.get(this.apiUrl + "uyeliste");
   }
+  UyeCevapListe(uyeid: string) {
+    return this.http.get(this.apiUrl + "uyecevapliste/" + uyeid)
+  }
   UyeById(uyeid: string) {
     return this.http.get(this.apiUrl + "uyebyid/" + uyeid);
   }
@@ -64,8 +67,8 @@ export class ApiService {
   SoruByKatId(katid: string) {
     return this.http.get(this.apiUrl + "sorubykatid/" + katid);
   }
-  SoruBySoruCevaplayanId(uyeid: string) {
-    return this.http.get(this.apiUrl + "sorulistebysorucevaplayanid/" + uyeid);
+  SoruListeHazirlayanId(uyeid: string) {
+    return this.http.get(this.apiUrl + "sorulistebysoruhazirlayanid/" + uyeid);
   }
   SoruEkle(soru: Sorular) {
     return this.http.post(this.apiUrl + "soruekle", soru);
@@ -92,9 +95,13 @@ export class ApiService {
   CevapBySoruId(soruid: string) {
     return this.http.get(this.apiUrl + "cevapbysoruid/" + soruid);
   }
-  CevapBySoruCevaplayanId(uyeid: string) {
+  CevapListeCevaplayanId(uyeid: string) {
     return this.http.get(this.apiUrl + "cevaplistebysorucevaplayanid/" + uyeid);
   }
+  KayitListeCevaplayanId(uyeid: string) {
+    return this.http.get(this.apiUrl + "kayitlistebysorucevaplayanid/" + uyeid);
+  }
+
   CevapEkle(cevap: Cevaplar) {
     return this.http.post(this.apiUrl + "cevapekle", cevap);
   }

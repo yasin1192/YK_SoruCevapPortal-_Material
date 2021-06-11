@@ -32,11 +32,11 @@
       <mat-header-cell *matHeaderCellDef> İşlemler</mat-header-cell>
       <mat-cell *matCellDef="let kayit">
         <button mat-icon-button color="primary" matTooltip="Soruları Listele"
-          [routerLink]="['/uyeninsorularilistele',kayit.kat_id]">
+          [routerLink]="['/uyeninsorularilistele',kayit.uye_id]">
           <mat-icon aria-label="label">question_answer</mat-icon>
         </button>
         <button mat-icon-button color="primary" matTooltip="Cevapları Listele"
-          [routerLink]="['/uyenincevaplarilistele',kayit.kat_id]">
+          [routerLink]="['/uyenincevaplarilistele',kayit.uye_id]">
           <mat-icon aria-label="label">article</mat-icon>
         </button>
         <button mat-icon-button color="primary" matTooltip="Uye Düzenle" (click)="Duzenle(kayit)">
