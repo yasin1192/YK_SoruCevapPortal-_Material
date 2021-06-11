@@ -1,3 +1,53 @@
-<p>
-  kayit works!
-</p>
+<div class="container" appearance="outline">
+  <h1> Kayıtlar </h1>
+  <mat-form-field>
+    <input matInput placeholder="Aranacak bir değer giriniz." (keyup)="Filtrele($event)">
+  </mat-form-field>
+
+
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="soru">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Soru
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.SoruBilgi.soru}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="kategori_adi">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Kategori Adı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.SoruBilgi.sorukat_adi}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cevap">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Cevap
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.CevapBilgi.cevap}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="soruhazirlayan_adi">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Hazırlayan Adı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.SoruBilgi.soruhazirlayan_adi}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sorucevaplayan_adi">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Cevaplayan Adı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.CevapBilgi.sorucevaplayan_adi}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="islemler">
+      <mat-header-cell *matHeaderCellDef> İşlemler</mat-header-cell>
+      <mat-cell *matCellDef="let kayit">
+        <button mat-icon-button color="warn" matTooltip="Kayit Sil" (click)="Sil(kayit)">
+          <mat-icon aria-label="label">delete</mat-icon>
+        </button>
+
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[10, 25, 50,100]" showFirstLastButtons>
+  </mat-paginator>
+</div>
