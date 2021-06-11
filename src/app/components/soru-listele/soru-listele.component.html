@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Seçili Kategoriye Ait Soru Listesi</h1>
+  <h2>
+    <p><b style="color: red;">Kategori Adı : </b>{{secKat?.kategori_adi}}</p>
+  </h2>
+  <h2>
+    <p><b style="color: red;">Kategori Id : </b>{{secKat?.kat_id}} </p>
+  </h2>
+  <button mat-fab color="primary" matTooltip="Kategorilere Dön" [routerLink]="['/kategori']">
+    <mat-icon aria-label="label">arrow_back</mat-icon>
+  </button>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="sorukat_adi">
+      <mat-header-cell *matHeaderCellDef> Kategori Adı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.sorukat_adi}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="soru">
+      <mat-header-cell *matHeaderCellDef> Soru
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.soru}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="soruhazirlayan_adi">
+      <mat-header-cell *matHeaderCellDef> Hazırlayan Adı </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.soruhazirlayan_adi}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="islemler">
+      <mat-header-cell *matHeaderCellDef> İşlemler </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">
+
+        <button mat-icon-button color="warn" matTooltip="Soruyu Sil" (click)="Sil(kayit)">
+          <mat-icon aria-label="label">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+
+</div>

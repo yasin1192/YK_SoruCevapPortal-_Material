@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Cevap Listesi</h1>
+  <h2>
+    <p><b style="color: red;">Soru : </b>{{secSoru?.soru}}</p>
+  </h2>
+  <h2>
+    <p><b style="color: red;">Yazarı : </b>{{secSoru?.soruhazirlayan_adi}} </p>
+  </h2>
+  <button mat-fab color="primary" matTooltip="Sorulara Dön" [routerLink]="['/soru']">
+    <mat-icon aria-label="label">arrow_back</mat-icon>
+  </button>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="sorukat_adi">
+      <mat-header-cell *matHeaderCellDef> Kategori Adı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.SoruBilgi.sorukat_adi}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="cevap">
+      <mat-header-cell *matHeaderCellDef> Cevap
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.CevapBilgi.cevap}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="sorucevaplayan_adi">
+      <mat-header-cell *matHeaderCellDef> Cevaplayan Adı </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.CevapBilgi.sorucevaplayan_adi}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="islemler">
+      <mat-header-cell *matHeaderCellDef> İşlemler </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">
+
+        <button mat-icon-button color="warn" matTooltip="Cevabı Sil" (click)="Sil(kayit)">
+          <mat-icon aria-label="label">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+
+</div>

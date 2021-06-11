@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <span>{{dialogBaslik}}</span>
+</mat-toolbar>
+<div class="container">
+  <form [formGroup]="frm">
+    <mat-form-field appearance="outline">
+      <mat-label>Kategori : </mat-label>
+      <input matInput placeholder="Kullanıcı Adı" formControlName="kuladi" name="kuladi" required type="text">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Şifre : </mat-label>
+      <input matInput placeholder="Yetki" formControlName="sifre" name="sifre" required type="text">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Yetki : </mat-label>
+      <input matInput placeholder="Yetki" formControlName="yetki" name="yetki" required type="text">
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="primary" (click)="dialogRef.close(frm.value)"
+    [disabled]="frm.invalid">Kaydet</button>&nbsp;
+  <button mat-raised-button color="warn" (click)="dialogRef.close()">İptal</button>
+</div>

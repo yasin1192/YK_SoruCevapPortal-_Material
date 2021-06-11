@@ -1,0 +1,52 @@
+<div class="container" appearance="outline">
+  <h1> Kategoriler </h1>
+  <mat-form-field>
+    <input matInput placeholder="Aranacak bir değer giriniz." (keyup)="Filtrele($event)">
+  </mat-form-field>
+  <button mat-fab color="primary" matTooltip="Kategori Ekle" (click)="Ekle()">
+    <mat-icon aria-label="label">add</mat-icon>
+  </button>
+
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="kat_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Kategori Id
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.kat_id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="kategori_adi">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Kategori Adı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.kategori_adi}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="kategorisorusay">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Kategoriye Ait Soru Sayısı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.kategorisorusay}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="islemler">
+      <mat-header-cell *matHeaderCellDef> İşlemler</mat-header-cell>
+      <mat-cell *matCellDef="let kayit">
+        <button mat-icon-button color="primary" matTooltip="Soruları Listele"
+          [routerLink]="['/sorulistele',kayit.kat_id]">
+          <mat-icon aria-label="label" class="material-icons-outlined">
+            question_answer</mat-icon>
+
+        </button>
+        <button mat-icon-button color="primary" matTooltip="Kategori Düzenle" (click)="Duzenle(kayit)">
+          <mat-icon aria-label=" label">edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" matTooltip="Kategori Sil" (click)="Sil(kayit)">
+          <mat-icon aria-label="label">delete</mat-icon>
+        </button>
+
+
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 50,100]" showFirstLastButtons>
+  </mat-paginator>
+</div>
