@@ -1,3 +1,7 @@
+import { NavUyeKayitComponent } from './components/Uye Arayuz/nav-uye-kayit/nav-uye-kayit.component';
+import { NavUyeHesapComponent } from './components/Uye Arayuz/nav-uye-hesap/nav-uye-hesap.component';
+import { NavUyeCevapComponent } from './components/Uye Arayuz/nav-uye-cevap/nav-uye-cevap.component';
+import { NavUyeSoruComponent } from './components/Uye Arayuz/nav-uye-soru/nav-uye-soru.component';
 import { UyeCevaplarComponent } from './components/uye-cevaplar/uye-cevaplar.component';
 import { UyeSorularComponent } from './components/uye-sorular/uye-sorular.component';
 import { KayitComponent } from './components/kayit/kayit.component';
@@ -34,7 +38,12 @@ const routes: Routes = [
   },
   {
     path: 'sorulistele/:katid',
-    component: SoruListeleComponent
+    component: SoruListeleComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ['Admin'],
+      gerigit: '/login'
+    }
   },
   {
     path: 'cevap',
@@ -47,11 +56,21 @@ const routes: Routes = [
   },
   {
     path: 'cevaplistele/:soruid',
-    component: CevapListeleComponent
+    component: CevapListeleComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ['Admin'],
+      gerigit: '/login'
+    }
   },
   {
     path: 'cevapdetay/:cevapid',
-    component: CevapDetayComponent
+    component: CevapDetayComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ['Admin'],
+      gerigit: '/login'
+    }
   },
 
   {
@@ -93,7 +112,44 @@ const routes: Routes = [
       yetkiler: ['Admin'],
       gerigit: '/login'
     }
-  }
+  },
+  //ÜYE İÇİN ROUTE KISMI
+  {
+    path: 'uye-soru',
+    component: NavUyeSoruComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ['Uye', 'Admin'],
+      gerigit: '/login'
+    }
+  },
+  {
+    path: 'uye-cevap',
+    component: NavUyeCevapComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ['Uye', 'Admin'],
+      gerigit: '/login'
+    }
+  },
+  {
+    path: 'uye-hesap',
+    component: NavUyeHesapComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ['Uye', 'Admin'],
+      gerigit: '/login'
+    }
+  },
+  {
+    path: 'uye-kayit',
+    component: NavUyeKayitComponent,
+    canActivate: [AuthGuard],
+    data: {
+      yetkiler: ['Uye', 'Admin'],
+      gerigit: '/login'
+    }
+  },
 
 ];
 

@@ -1,3 +1,7 @@
+import { NavUyeKayitComponent } from './components/Uye Arayuz/nav-uye-kayit/nav-uye-kayit.component';
+import { NavUyeHesapComponent } from './components/Uye Arayuz/nav-uye-hesap/nav-uye-hesap.component';
+import { NavUyeCevapComponent } from './components/Uye Arayuz/nav-uye-cevap/nav-uye-cevap.component';
+import { NavUyeSoruComponent } from './components/Uye Arayuz/nav-uye-soru/nav-uye-soru.component';
 import { KayitDialogComponent } from './components/dialogs/kayit-dialog/kayit-dialog.component';
 import { UyeCevaplarComponent } from './components/uye-cevaplar/uye-cevaplar.component';
 import { UyeSorularComponent } from './components/uye-sorular/uye-sorular.component';
@@ -33,6 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
+    //Admin İçin
     AppComponent,
     HomeComponent,
     MainNavComponent,
@@ -47,6 +52,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     KayitComponent,
     UyeSorularComponent,
     UyeCevaplarComponent,
+
+    //Uye İçin
+    NavUyeSoruComponent,
+    NavUyeCevapComponent,
+    NavUyeHesapComponent,
+    NavUyeKayitComponent,
 
     //Dialoglar
     AlertDialogComponent,

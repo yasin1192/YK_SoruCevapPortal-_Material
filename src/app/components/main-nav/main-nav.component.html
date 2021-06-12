@@ -3,11 +3,11 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['/soru']">Sorular</a>
-      <a mat-list-item [routerLink]="['/cevap']">Cevaplar</a>
+      <a mat-list-item [routerLink]="['/uye-soru']">Sorular</a>
+      <a mat-list-item [routerLink]="['/uye-cevap']">Cevaplar</a>
       <a mat-list-item [routerLink]="['/kategori']">Kategoriler</a>
-      <a mat-list-item [routerLink]="['/uye']">Uyeler</a>
-      <a mat-list-item [routerLink]="['/kayit']">Kayıtlar</a>
+      <a mat-list-item [routerLink]="['/uye-hesap']">Hesabım</a>
+      <a mat-list-item [routerLink]="['/uye-kayit']">Kayıtlar</a>
 
 
     </mat-nav-list>
@@ -29,15 +29,14 @@
         <mat-icon>admin_panel_settings</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>item1</button>
-        <button mat-menu-item [matMenuTriggerFor]="altmenu">item2</button>
-        <button mat-menu-item>item3</button>
-      </mat-menu>
-      <mat-menu #altmenu="matMenu">
-        <button mat-menu-item>alt item1</button>
-        <button mat-menu-item>alt item2</button>
+        <button mat-menu-item [routerLink]="['/soru']">Sorular</button>
+        <button mat-menu-item [routerLink]="['/cevap']">Cevaplar</button>
+        <button mat-menu-item [routerLink]="['/kategori']">Kategoriler</button>
+        <button mat-menu-item [routerLink]="['/uye']">Üyeler</button>
+        <button mat-menu-item [routerLink]="['/kayit']">Kayıtlar</button>
 
       </mat-menu>
+
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
