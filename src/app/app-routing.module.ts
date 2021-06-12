@@ -41,7 +41,7 @@ const routes: Routes = [
     component: SoruListeleComponent,
     canActivate: [AuthGuard],
     data: {
-      yetkiler: ['Admin'],
+      yetkiler: ['Admin', 'Uye'],
       gerigit: '/login'
     }
   },
@@ -59,7 +59,7 @@ const routes: Routes = [
     component: CevapListeleComponent,
     canActivate: [AuthGuard],
     data: {
-      yetkiler: ['Admin'],
+      yetkiler: ['Admin', 'Uye'],
       gerigit: '/login'
     }
   },
@@ -68,7 +68,7 @@ const routes: Routes = [
     component: CevapDetayComponent,
     canActivate: [AuthGuard],
     data: {
-      yetkiler: ['Admin'],
+      yetkiler: ['Admin', 'Uye'],
       gerigit: '/login'
     }
   },
@@ -119,7 +119,7 @@ const routes: Routes = [
     component: NavUyeSoruComponent,
     canActivate: [AuthGuard],
     data: {
-      yetkiler: ['Uye', 'Admin'],
+      yetkiler: ['Uye'],
       gerigit: '/login'
     }
   },
@@ -128,7 +128,7 @@ const routes: Routes = [
     component: NavUyeCevapComponent,
     canActivate: [AuthGuard],
     data: {
-      yetkiler: ['Uye', 'Admin'],
+      yetkiler: ['Uye'],
       gerigit: '/login'
     }
   },
@@ -137,7 +137,7 @@ const routes: Routes = [
     component: NavUyeHesapComponent,
     canActivate: [AuthGuard],
     data: {
-      yetkiler: ['Uye', 'Admin'],
+      yetkiler: ['Uye'],
       gerigit: '/login'
     }
   },
@@ -146,7 +146,7 @@ const routes: Routes = [
     component: NavUyeKayitComponent,
     canActivate: [AuthGuard],
     data: {
-      yetkiler: ['Uye', 'Admin'],
+      yetkiler: ['Uye'],
       gerigit: '/login'
     }
   },

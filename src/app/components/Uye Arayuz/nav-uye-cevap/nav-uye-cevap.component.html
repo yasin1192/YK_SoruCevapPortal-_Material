@@ -1,3 +1,46 @@
-<p>
-  nav-uye-cevap works!
-</p>
+<div class="container" appearance="outline">
+  <h1> Cevaplar </h1>
+  <mat-form-field>
+    <input matInput placeholder="Aranacak bir değer giriniz." (keyup)="Filtrele($event)">
+  </mat-form-field>
+  <button mat-fab color="primary" matTooltip="Cevap Ekle" (click)="Ekle()">
+    <mat-icon aria-label="label">add</mat-icon>
+  </button>
+
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="soru">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Soru
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.soru}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cevap">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Cevap
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.cevap}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sorucevaplayan_adi">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Cevaplayan Adı
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit"> {{kayit.sorucevaplayan_adi}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="islemler">
+      <mat-header-cell *matHeaderCellDef> İşlemler</mat-header-cell>
+      <mat-cell *matCellDef="let kayit">
+        <button mat-icon-button color="primary" matTooltip="Cevap Detayları"
+          [routerLink]="['/cevapdetay',kayit.cevap_id]">
+          <mat-icon aria-label=" label">article</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" matTooltip="Cevap Düzenle" (click)="Duzenle(kayit)">
+          <mat-icon aria-label=" label">edit</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[10, 25, 50,100]" showFirstLastButtons>
+  </mat-paginator>
+</div>

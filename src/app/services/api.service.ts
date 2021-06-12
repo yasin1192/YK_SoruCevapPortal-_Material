@@ -117,9 +117,11 @@ export class ApiService {
   KayitListe() {
     return this.http.get(this.apiUrl + "kayitliste");
   }
+  KayitlarByUyeId(uyeid: string) {
+    return this.http.get(this.apiUrl + "  kayitbyuyeid/" + uyeid);
+  }
   KayitlarByKayitId(kayitid: string) {
     return this.http.get(this.apiUrl + "kayitlarbykayitid/" + kayitid);
-
   }
   KayitSil(kayitid: string) {
     return this.http.delete(this.apiUrl + "kayitsil/" + kayitid);

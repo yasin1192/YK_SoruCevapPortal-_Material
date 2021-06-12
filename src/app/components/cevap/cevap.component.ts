@@ -75,6 +75,7 @@ export class CevapComponent implements OnInit {
     this.dialogRef.afterClosed().subscribe((d: Cevaplar) => {
       if (d) {
         d.sorucevaplayan_id = localStorage.getItem("uid");
+        d.sorucevaplayan_adi = localStorage.getItem("kadi");
         console.log(d);
         this.apiServis.CevapEkle(d).subscribe((s: Sonuc) => {
 

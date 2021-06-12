@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { Uyeler } from 'src/app/models/Uyeler';
+import { Sorular } from 'src/app/models/Sorular';
 
 @Component({
   selector: 'app-main-nav',
@@ -11,6 +13,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class MainNavComponent implements OnInit {
   kadi: string;
+  soru: Sorular[];
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),

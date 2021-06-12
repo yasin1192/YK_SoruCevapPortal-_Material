@@ -6,7 +6,12 @@
   <h2>
     <p><b style="color: red;">Yazarı : </b>{{secCevap?.sorucevaplayan_adi}} </p>
   </h2>
-  <button mat-fab color="primary" matTooltip="Sorulara Dön" [routerLink]="['/cevap']">
+  <button mat-fab color="primary" matTooltip="Sorulara Dön" *ngIf="apiServis.yetkiKontrol(['Admin'])"
+    [routerLink]="['cevap']">
+    <mat-icon aria-label="label">arrow_back</mat-icon>
+  </button>
+  <button mat-fab color="primary" matTooltip="Sorulara Dön" *ngIf="apiServis.yetkiKontrol(['Uye'])"
+    [routerLink]="['/uye-cevap']">
     <mat-icon aria-label="label">arrow_back</mat-icon>
   </button>
   <mat-table [dataSource]="dataSource">
