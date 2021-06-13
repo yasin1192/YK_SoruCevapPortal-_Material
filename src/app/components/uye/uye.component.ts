@@ -1,5 +1,5 @@
 import { ConfirmDialogComponent } from './../dialogs/confirm-dialog/confirm-dialog.component';
-import { UyeDialogComponent } from './../dialogs/uye-dialog/uye-dialog.component';
+import { AdminUyeDialogComponent } from '../dialogs/admin-uye-dialog/admin-uye-dialog.component';
 import { Uyeler } from './../../models/Uyeler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
@@ -22,7 +22,7 @@ export class UyeComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort
   @ViewChild(MatPaginator) paginator: MatPaginator
-  dialogRef: MatDialogRef<UyeDialogComponent>;
+  dialogRef: MatDialogRef<AdminUyeDialogComponent>;
   confirmDialogRef: MatDialogRef<ConfirmDialogComponent>;
   constructor(
     public apiServis: ApiService,
@@ -47,7 +47,7 @@ export class UyeComponent implements OnInit {
   }
   Ekle() {
     var yeniuye: Uyeler = new Uyeler();
-    this.dialogRef = this.matDialog.open(UyeDialogComponent, {
+    this.dialogRef = this.matDialog.open(AdminUyeDialogComponent, {
       width: '300px',
       data: {
         kayit: yeniuye,
@@ -70,7 +70,7 @@ export class UyeComponent implements OnInit {
     })
   }
   Duzenle(kayit: Uyeler) {
-    this.dialogRef = this.matDialog.open(UyeDialogComponent, {
+    this.dialogRef = this.matDialog.open(AdminUyeDialogComponent, {
       width: '300px',
       data: {
         kayit: kayit,

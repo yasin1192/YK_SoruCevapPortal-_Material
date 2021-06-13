@@ -1,24 +1,24 @@
+import { Uyeler } from '../../../models/Uyeler';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
-import { Uyeler } from 'src/app/models/Uyeler';
+import { MatPaginator } from '@angular/material/paginator';
 import { ApiService } from 'src/app/services/api.service';
-import { AdminUyeDialogComponent } from '../admin-uye-dialog/admin-uye-dialog.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-uye-dialog',
-  templateUrl: './uye-dialog.component.html',
-  styleUrls: ['./uye-dialog.component.scss']
+  selector: 'app-admin-uye-dialog',
+  templateUrl: './admin-uye-dialog.component.html',
+  styleUrls: ['./admin-uye-dialog.component.scss']
 })
-export class UyeDialogComponent implements OnInit {
+export class AdminUyeDialogComponent implements OnInit {
   dialogBaslik: string;
   islem: string;
   frm: FormGroup;
   yeniUye: Uyeler;
-  uyeid: string;
-  uye: Uyeler;
+  uye: Uyeler[];
+  yetkiler: ["admin", "uye"];
+
   dataSource: any;
   @ViewChild(MatSort) sort: MatSort
   @ViewChild(MatPaginator) paginator: MatPaginator
@@ -28,12 +28,14 @@ export class UyeDialogComponent implements OnInit {
     public apiServis: ApiService,
     public matDialog: MatDialog,
     public frmBuild: FormBuilder,
-    public dialogRef: MatDialogRef<UyeDialogComponent>,
+    public dialogRef: MatDialogRef<AdminUyeDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.islem = data.islem;
     this.yeniUye = data.kayit;
-
+    if (this.islem == 'ekle') {
+      this.dialogBaslik = "Üye Ekle";
+    }
     if (this.islem == 'duzenle') {
       this.dialogBaslik = "Üye Düzenle";
     }
@@ -41,22 +43,21 @@ export class UyeDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.uyeid = localStorage.getItem("uid");
     this.UyeListele();
   }
   FormOlustur() {
     return this.frmBuild.group({
       kuladi: [this.yeniUye.kuladi],
       sifre: [this.yeniUye.sifre],
+      yetki: [this.yeniUye.yetki]
 
     });
   }
   UyeListele() {
-    this.apiServis.UyeById(this.uyeid).subscribe((d: Uyeler) => {
+    this.apiServis.UyeListe().subscribe((d: Uyeler[]) => {
       this.uye = d;
       console.log(d);
     })
   }
-
 }
 

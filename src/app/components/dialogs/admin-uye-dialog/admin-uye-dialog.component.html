@@ -7,9 +7,14 @@
       <mat-label>Kullanıcı Adı : </mat-label>
       <input matInput placeholder="Kullanıcı Adı" formControlName="kuladi" name="kuladi" required type="text">
     </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>Şifre : </mat-label>
       <input matInput placeholder="Yetki" formControlName="sifre" name="sifre" required type="text">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Yetki : </mat-label>
+      <input matInput placeholder="admin veya uye" formControlName="yetki" name="yetki" required type="text">
     </mat-form-field>
   </form>
   <button mat-raised-button color="primary" (click)="dialogRef.close(frm.value)"

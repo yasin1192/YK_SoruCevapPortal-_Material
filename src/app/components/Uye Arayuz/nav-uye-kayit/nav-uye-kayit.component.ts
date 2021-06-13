@@ -21,6 +21,7 @@ export class NavUyeKayitComponent implements OnInit {
   cevap: Cevaplar[];
   kayitlar: Kayit[];
   kayitid: string;
+  uyeadi: string;
   cevaplayanid: string;
   secUye: Uyeler;
   displayedColumns = ['soru', 'kategori_adi', 'cevap', 'soruhazirlayan_adi', 'sorucevaplayan_adi', 'islemler']
@@ -39,6 +40,7 @@ export class NavUyeKayitComponent implements OnInit {
 
   ngOnInit() {
     this.cevaplayanid = localStorage.getItem("uid");
+    this.uyeadi = localStorage.getItem("kadi");
     this.UyeGetir();
     this.KayitListele();
   }

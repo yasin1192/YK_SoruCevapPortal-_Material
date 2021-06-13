@@ -23,6 +23,7 @@ export class NavUyeSoruComponent implements OnInit {
   displayedColumns = ['soru', 'sorukat_adi', 'soruhazirlayan_adi', 'verilencevapsay', 'islemler']
   dataSource: any;
   hazirlayanid: string;
+  uyeadi: string;
   @ViewChild(MatSort) sort: MatSort
   @ViewChild(MatPaginator) paginator: MatPaginator
   dialogRef: MatDialogRef<SoruDialogComponent>;
@@ -36,6 +37,8 @@ export class NavUyeSoruComponent implements OnInit {
 
   ngOnInit() {
     this.hazirlayanid = localStorage.getItem("uid");
+    this.uyeadi = localStorage.getItem("kadi");
+
     this.UyeGetir();
     this.SoruListele();
 

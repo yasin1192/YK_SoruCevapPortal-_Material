@@ -23,7 +23,7 @@ export class NavUyeCevapComponent implements OnInit {
   secUye: Uyeler;
   cevapid: string;
   cevaplayanid: string;
-
+  uyeadi: string;
   displayedColumns = ['soru', 'cevap', 'sorucevaplayan_adi', 'islemler']
   dataSource: any;
 
@@ -40,6 +40,8 @@ export class NavUyeCevapComponent implements OnInit {
 
   ngOnInit() {
     this.cevaplayanid = localStorage.getItem("uid");
+    this.uyeadi = localStorage.getItem("kadi");
+
     this.UyeGetir();
     this.CevapListele();
   }

@@ -5,7 +5,7 @@ import { NavUyeSoruComponent } from './components/Uye Arayuz/nav-uye-soru/nav-uy
 import { KayitDialogComponent } from './components/dialogs/kayit-dialog/kayit-dialog.component';
 import { UyeCevaplarComponent } from './components/uye-cevaplar/uye-cevaplar.component';
 import { UyeSorularComponent } from './components/uye-sorular/uye-sorular.component';
-import { UyeDialogComponent } from './components/dialogs/uye-dialog/uye-dialog.component';
+import { AdminUyeDialogComponent } from './components/dialogs/admin-uye-dialog/admin-uye-dialog.component';
 import { KayitComponent } from './components/kayit/kayit.component';
 import { UyeComponent } from './components/uye/uye.component';
 import { AuthGuard } from './services/AuthGuard';
@@ -34,6 +34,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UyeDialogComponent } from './components/dialogs/uye-dialog/uye-dialog.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CevapDialogComponent,
     KategoriDialogComponent,
     UyeDialogComponent,
+    AdminUyeDialogComponent,
     KayitDialogComponent,
 
   ],
@@ -85,6 +87,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CevapDialogComponent,
     KategoriDialogComponent,
     UyeDialogComponent,
+    AdminUyeDialogComponent,
     KayitDialogComponent,
   ],
   providers: [MyAlertService, ApiService, AuthGuard,
