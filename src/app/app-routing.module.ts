@@ -137,7 +137,7 @@ const routes: Routes = [
     component: NavUyeHesapComponent,
     canActivate: [AuthGuard],
     data: {
-      yetkiler: ['Uye'],
+      yetkiler: ['Uye','Admin'],
       gerigit: '/login'
     }
   },
