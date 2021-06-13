@@ -13,6 +13,7 @@ import { Sorular } from 'src/app/models/Sorular';
 })
 export class MainNavComponent implements OnInit {
   kadi: string;
+  yetki: string;
   soru: Sorular[];
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -28,6 +29,8 @@ export class MainNavComponent implements OnInit {
   ngOnInit(): void {
     if (this.apiServis.oturumKontrol()) {
       this.kadi = localStorage.getItem("kadi");
+      this.yetki = localStorage.getItem("uyeYetkileri");
+
     }
   }
   OturumKapat() {

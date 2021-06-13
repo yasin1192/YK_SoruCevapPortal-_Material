@@ -23,7 +23,9 @@
 
 
       <button mat-button [routerLink]="['/login']" *ngIf="!apiServis.oturumKontrol()">Oturum Aç</button>
-      <button mat-button [routerLink]="['/uye']" *ngIf="apiServis.oturumKontrol()">{{kadi}}</button>
+      <button mat-button [routerLink]="['/uye']" *ngIf="apiServis.oturumKontrol()">{{kadi}} </button>
+      <button mat-button [routerLink]="['/uye-hesap']" *ngIf="apiServis.oturumKontrol()">{{yetki}}</button>
+
       <button mat-button (click)="OturumKapat()" *ngIf="apiServis.oturumKontrol()">Oturumu Kapat</button>
       <button mat-button [matMenuTriggerFor]="menu" matTooltip="Admin Menü" *ngIf="apiServis.yetkiKontrol(['Admin'])">
         <mat-icon>admin_panel_settings</mat-icon>
