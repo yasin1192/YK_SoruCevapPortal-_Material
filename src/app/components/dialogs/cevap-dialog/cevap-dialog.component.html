@@ -5,7 +5,7 @@
   <form [formGroup]="frm">
 
     <mat-form-field appearance="outline">
-      <mat-label>Kategori : </mat-label>
+      <mat-label>Soru : </mat-label>
       <mat-select placeholder="Soru Seçiniz" formControlName="soru_id" name="soru_id" required
         (selectionChange)="SoruIdSec($event.value)">
         <mat-option [value]="soru.soru_id" *ngFor="let soru of sorular">
@@ -14,7 +14,7 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Soru : </mat-label>
+      <mat-label>Cevap : </mat-label>
       <input matInput placeholder="Cevap" formControlName="cevap" name="cevap" required type="text">
     </mat-form-field>
   </form>
