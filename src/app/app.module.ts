@@ -2,7 +2,6 @@ import { NavUyeKayitComponent } from './components/Uye Arayuz/nav-uye-kayit/nav-
 import { NavUyeHesapComponent } from './components/Uye Arayuz/nav-uye-hesap/nav-uye-hesap.component';
 import { NavUyeCevapComponent } from './components/Uye Arayuz/nav-uye-cevap/nav-uye-cevap.component';
 import { NavUyeSoruComponent } from './components/Uye Arayuz/nav-uye-soru/nav-uye-soru.component';
-import { KayitDialogComponent } from './components/dialogs/kayit-dialog/kayit-dialog.component';
 import { UyeCevaplarComponent } from './components/uye-cevaplar/uye-cevaplar.component';
 import { UyeSorularComponent } from './components/uye-sorular/uye-sorular.component';
 import { AdminUyeDialogComponent } from './components/dialogs/admin-uye-dialog/admin-uye-dialog.component';
@@ -68,7 +67,6 @@ import { UyeDialogComponent } from './components/dialogs/uye-dialog/uye-dialog.c
     KategoriDialogComponent,
     UyeDialogComponent,
     AdminUyeDialogComponent,
-    KayitDialogComponent,
 
   ],
   imports: [
@@ -88,7 +86,6 @@ import { UyeDialogComponent } from './components/dialogs/uye-dialog/uye-dialog.c
     KategoriDialogComponent,
     UyeDialogComponent,
     AdminUyeDialogComponent,
-    KayitDialogComponent,
   ],
   providers: [MyAlertService, ApiService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
