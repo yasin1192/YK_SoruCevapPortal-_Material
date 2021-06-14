@@ -1,4 +1,3 @@
-import { KayitDialogComponent } from './../dialogs/kayit-dialog/kayit-dialog.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -26,7 +25,6 @@ export class KayitComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort
   @ViewChild(MatPaginator) paginator: MatPaginator
-  dialogRef: MatDialogRef<KayitDialogComponent>;
   confirmDialogRef: MatDialogRef<ConfirmDialogComponent>;
   constructor(
     public apiServis: ApiService,
